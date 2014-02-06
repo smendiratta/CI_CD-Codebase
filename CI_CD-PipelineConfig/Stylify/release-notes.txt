@@ -1,0 +1,71 @@
+﻿0.8.2
+=====
+
+* Added ultra light frutiger font in harmont font stack.
+"FrutigerNextW01-UltraLi"
+0.8.1
+=====
+* Fixed IE7 Radio button rendering issue for harmony theme.
+
+
+
+0.8
+===
+
+Improved harmony themese.
+Added harmony, fonts, and more examples for Harmony.
+
+0.7 
+=== 
+
+The focus of this release has been to add support for Crescendo theme a.k.a Harmony Marketing.
+Please see the style guide at  http://info.corp.intuit.net/download/attachments/37559149/Intuit_HarmonyMarketing_StyleGuide_051413.pdf?version=1&modificationDate=1369255870613
+
+Please goto http://stylify.intuit.com/ and select a new theme under select theme menu
+----------------------------------------------
+Features of Crescendo /Harmony Marketing theme
+----------------------------------------------
+* Completely new style and fonts and colors
+* New Components
+  ** Linear Flow
+  ** Signature Moment
+  ** New Icons
+     *** Social Icons
+	 *** Intuit Blue Brand Logo
+  ** New Containers
+     *** Content-Card Panels
+	 *** Pricing Containers
+	 *** Comparison Tables
+
+  ** New Ordered Lists styles (bluedot checkmark hexagon)
+  ** New Typography headers
+  ** New Color Palletes
+  ** Dropdowns now work on hover via .droponhover class
+  ** 1200, 980, 767 responsive support
+  ** Example for expandable menu
+     ***stylify.intuit.com/Content/Examples/marketing-homepage-example-default.html Click on More from Intuit
+  ** New Navigations
+	 *** Global Navs
+	 *** Product Navs
+	 *** Footer
+	 *** Sitemap
+
+
+See a Customer Demo of Marketing Theme thanks to PSG.
+https://qdcstage3.intuitmarket.intuit.com/ui/pages/home.html
+
+---------------------------------------------
+Features added/updates to all themes
+---------------------------------------------
+* DataTables added to All Themes
+* Fixed Unresponsive box-sections
+* Multi Select Drop down (Contribution from dan_lee@intuit.com)
+
+
+0.6
+===
+* Added responsive classes into the project.
+* Marked responsive examples with badges
+* Added java starter kits
+* Made Harmony theme default on the stylify-website
+*

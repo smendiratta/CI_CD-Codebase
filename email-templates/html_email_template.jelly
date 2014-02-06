@@ -1,0 +1,178 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define">
+
+<link type="text/css" rel="stylesheet" href="${rooturl}static/e59dfe28/css/style.css"/>
+<link type="text/css" rel="stylesheet" href="${rooturl}static/e59dfe28/css/color.css"/>
+
+<STYLE>
+a:link,a:visited {
+  text-decoration: underline;
+  <!--color: #3B5998;-->
+  color: #8B9DC3
+}
+
+a.success:link,a.success:visited {
+  text-decoration: underline;
+  color: #338033;
+}
+
+a.failure:link,a.failure:visited {
+  text-decoration: underline;
+  color: #900;
+}
+
+a.unstable:link,a.unstable:visited {
+  text-decoration: underline;
+  color: #F0C000;
+}
+
+<!--
+body {
+  background-color: #DFE3EE;
+}-->
+
+.pane {
+  margin-top: 4px;
+  white-space: nowrap;
+}
+
+.pane TD {
+  padding: 4px 4px 3px 4px;
+}
+
+TABLE.pane {
+  width: 100%;
+  border: none;
+}
+
+TD.style1 {
+  color: #3B5998;
+  width: 10%;
+}
+
+TD.pane {
+  padding: 3px 4px 3px 4px;
+  vertical-align: middle;
+}
+
+TD.pane-header {
+  border-top: 1px #8B9DC3 solid;
+  border-bottom: 1px #8B9DC3 solid;
+  background-color: #DFE3EE;
+  font-weight: bold;
+  font-family: Verdana, Helvetica, sans serif;
+  font-size: 11px;
+  color: #8B9DC3;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+TD.pane-header-success {
+  border-top: 1px #338033 solid;
+  border-bottom: 1px #338033 solid;
+  background-color: #E0FFE0;
+  font-weight: bold;
+  font-family: Verdana, Helvetica, sans serif;
+  font-size: 11px;
+  color: #338033;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+TD.pane-header-failure {
+  border-top: 1px #900 solid;
+  border-bottom: 1px #900 solid;
+  background-color: #FCC;
+  font-weight: bold;
+  font-family: Verdana, Helvetica, sans serif;
+  font-size: 11px;
+  color: #900;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+TD.pane-header-unstable {
+  border-top: 1px #F0C000 solid;
+  border-bottom: 1px #F0C000 solid;
+  background-color: #FFFFCE;
+  font-weight: bold;
+  font-family: Verdana, Helvetica, sans serif;
+  font-size: 11px;
+  color: #F0C000;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+TH.pane {
+  font-weight: bold;
+}
+
+SPAN.style1 {
+  font-weight: bold;
+  color: #8B9DC3;
+}
+
+SPAN.success {
+  color: #338033;
+}
+
+SPAN.failure {
+  color: #900;
+}
+
+LI.style1 {
+  list-style: cirle outside;
+}
+
+LI.failure {
+  list-style: cirle outside;
+  color: #900;
+}
+
+
+</STYLE>
+
+
+
+<BODY>
+<j:set var="spc" value="&amp;nbsp;&amp;nbsp;" />
+
+
+<!-- GENERAL INFO -->
+
+<TABLE class="pane">
+ <TBODY>
+  <TR>
+
+    <j:choose>
+      <j:when test="${build.result=='SUCCESS'}">
+    <TD colspan="2" class="pane-header-success">
+    <SPAN>Build Result Summary - <A class="success" href="${rooturl}${build.url}">See full build details</A></SPAN>
+     </TD>
+      </j:when>
+      <j:when test="${build.result=='FAILURE'}">
+    <TD colspan="2" class="pane-header-failure">
+    <SPAN>Build Result Summary - <A class="failure" href="${rooturl}${build.url}">See full build details</A></SPAN>
+     </TD>
+      </j:when>
+      <j:otherwise>
+    <TD colspan="2" class="pane-header-unstable">
+    <SPAN>Build Result Summary - <A class="unstable" href="${rooturl}${build.url}">See full build details</A></SPAN>
+     </TD>
+      </j:otherwise>
+    </j:choose>
+  </TR>
+<TR><TD BGCOLOR="#0099CC" width="20%"><FONT COLOR=White FACE="Geneva, Arial" SIZE=2>  Total</font></td><TD BGCOLOR="#FFFFFF"><FONT COLOR=#0099CC FACE="Geneva, Arial" SIZE=2>${TEST_COUNTS,var="total"}</font></td></TR>
+
+<TABLE BORDER=0 CELLSPACING=2 CELLPADDING=2 Width="100%">
+<TR><TD BGCOLOR="#04B431" width="20%"><FONT COLOR=white FACE="Geneva, Arial" SIZE=2>  Pass</font></td><TD BGCOLOR="#FFFFFF"><FONT COLOR=#04B431 FACE="Geneva, Arial" SIZE=2>${TEST_COUNTS,var="pass"}</font></td></TR>
+
+<TABLE BORDER=0 CELLSPACING=2 CELLPADDING=2 Width="100%">
+<TR><TD BGCOLOR="#DF3A01" width="20%"><FONT COLOR=white FACE="Geneva, Arial" SIZE=2>  Fail</font></td><TD BGCOLOR="#FFFFFF"><FONT COLOR=#DF3A01 FACE="Geneva, Arial" SIZE=2>${TEST_COUNTS,var="fail"}</font></td></TR>
+
+<TABLE BORDER=0 CELLSPACING=2 CELLPADDING=2 Width="100%">
+<TR><TD BGCOLOR="#A4A4A4" width="20%"><FONT COLOR=white FACE="Geneva, Arial" SIZE=2>  Skip</font></td><TD BGCOLOR="#FFFFFF"><FONT COLOR=#A4A4A4 FACE="Geneva, Arial" SIZE=2>${TEST_COUNTS,var="skip"}</font></td></TR>
+
+  </TR>
+  </TBODY>
+</BODY>
+</j:jelly>

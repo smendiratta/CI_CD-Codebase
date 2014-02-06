@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>form</title>
+		<meta name="author" content="Mendiratta, Shashank" />
+		<!-- Date: 2013-12-05 -->
+		<link href="../Stylify/assets/css/theme-harmony-marketing.css" rel="stylesheet" media="screen">
+		<script src="../Stylify/assets/js/jquery.js"></script>
+		</div>
+		<!--Header -->
+		<div class="navbar productnav">
+			<div class="container">
+				<div class="row">
+					<div class="span4">
+						<a href="#" class="logo"> </a>
+						<div class="brand">
+							Pipleline Configuration
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="paperPanel" style="padding-bottom: 15px">
+				<h2>Select Job </h2>
+
+				<div class="row">
+					<div class="span4">
+						<!--Need to Create below the Select Field Dynamically-->
+						<select class="selectpicker" id="jobList" name="nlist" >
+							<option value="0" selected>Select Job</option>
+							<option value="1">Build-UT-Pkg</option>
+							<option value="2">Deploy</option>
+						</select>
+						<!--Select Block-->
+					</div>
+					<div class="span=4">
+						<button class="btn btn-primary add_job">
+							Add
+						</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="container" id="Bld-ut-pkg" style="display:none">
+			<div class="paperPanel">
+
+				<form id="build_ut_pkg" action="../post_build_ut_pkg_form.php" method="post">
+					<h2>Build-UT-pkg</h2>
+					<div class="row">
+						<div class="span4">
+							<label>Project Name</label>
+							<input type="text" name="Project_Name" placeholder="Enter the Project name..">
+						</div>
+						<div class="span4">
+							<label>Enter P4 Branch Config</label>
+							<input type="text" name="View_Spec" placeholder="Enter the P4 Branch Config..">
+						</div>
+					</div>
+					<div class="row">
+						<div class="span4">
+							<label>Enter View Mask </label>
+							<input type="text" name="View_Mask" placeholder="Enter the Branch Mask ..">
+						</div>
+						<div class="span4">
+							<label>Poll Frequency </label>
+							<input type="text" name="Poll_Freq" placeholder="Enter Poll freq in H/5 * * * * ..">
+						</div>
+					</div>
+					<div class="row">
+						<div class="span4">
+							<label>Soln File Path</label>
+							<input type="text" name="Soln_Path" placeholder="Enter the Path of the Soln File ..">
+						</div>
+					</div>
+					<div class="row">
+						<div class="span4">
+							<label>Enter Unit Test Path</label>
+							<input type="text" name="Ut_Test_Path" placeholder="Enter the UT Path ..">
+						</div>
+						<div class="span4">
+							<label>Build Config </label>
+							<input type="text" name="Build_Config" placeholder="Debug / Release">
+						</div>
+					</div>
+					<div class="row">
+						<div class="span4">
+							<label>Enter Nuspec Dir Path</label>
+							<input type="text" name="Nuspec_Path" placeholder="Enter the Nuspec Dir Path ..">
+						</div>
+					</div>
+					<button class="btn btn-primary" type="submit">
+						Submit
+					</button>
+
+				</form>
+				<div class="span4">
+
+				</div>
+
+			</div>
+		</div>
+		<script>
+			$(document).ready(function() {
+
+				$(".add_job").click(function() {
+					alert("Select a Job to be added ")
+				});
+
+			});
+
+			$('select#jobList').change(function() {
+				var sel_value = $('select[name="nlist"] option:selected').val();
+				console.log(sel_value);
+				$(".add_job").unbind("click");
+				switch(sel_value) {
+					case '0':
+						$(".add_job").click(function() {
+							alert("Select a Job to be added ")
+						});
+						break;
+					case '1':
+						$(".add_job").click(function() {
+							$('#Bld-ut-pkg').show();
+						});
+						break;
+					default:
+						$(".add_job").click(function() {
+							alert("Select a Job to be added ")
+						});
+
+				}
+				//alert(sel_value);
+			});
+			//$(".selectpicker").val("1")
+
+			function clickhide(form) {
+				document.getElementById(form).style.display = 'none';
+			}
+		</script>
+
+		</body>
+</html>
